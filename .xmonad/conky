@@ -1,0 +1,13 @@
+# conkyrc file for dzen
+###
+
+background no
+out_to_console yes
+out_to_x no
+override_utf8_locale yes
+update_interval 1
+total_run_times 0
+
+TEXT
+Cpu: ^fg(\#888888)${cpu cpu0}%^fg()  Mem: ^fg(\#888888)${memperc}%^fg()  Net: ^fg(\#888888)${downspeed wlan0}^fg() / ^fg(\#888888)${upspeed wlan0}^fg() ${time %a %b %d %H:%M}  
+#Mail: ^fg(\#888888)${new_mails ~/Mail}^fg() Bat: ^fg(\#888888)${apcupsd_charge}^fg() (^fg(\#888888)${apcupsd_timeleft}^fg())

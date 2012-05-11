@@ -1,0 +1,112 @@
+set from = "ryan.roler@gmail.com"
+set realname = "Ryan Roler"
+set envelope_from
+set mail_check
+unset move
+set delete
+set quit
+unset mark_old
+
+# index options
+set sort = threads
+set sort_aux = reverse-last-date-received
+set sort_re
+
+set folder = "$HOME/Mail"
+set mail_check = 240
+set spoolfile = "+INBOX"
+
+set mbox_type=Maildir
+set mbox = "+archive"
+set postponed = "+drafts"
+mailboxes +INBOX +archive +sent +drafts +spam +trash
+
+unset record
+set sendmail = /usr/bin/msmtp
+
+set certificate_file =~/.mutt/certificates
+
+bind editor <space> noop
+macro index gi "<change-folder>=INBOX<enter>" "Go to inbox"
+macro index ga "<change-folder>=[Gmail]/All Mail<enter>" "Go to all mail"
+macro index gs "<change-folder>=[Gmail]/Sent Mail<enter>" "Go to Sent Mail"
+macro index gd "<change-folder>=[Gmail]/Drafts<enter>" "Go to drafts"
+
+set move = no # Don't ask before moving read messages to mbox
+set imap_keepalive = 900
+
+# Keybinds
+# Generic
+bind generic l select-entry
+bind generic <right> select-entry
+
+# Index
+bind index l display-message
+bind index h change-folder
+bind index <right> display-message
+bind index <left> change-folder
+bind index H display-toggle-weed
+macro index , '<change-folder>!^M'
+macro index I '<tag-pattern>~N^M<tag-prefix><toggle-new><tag-prefix><tag-entry>'
+
+# Pager
+set pager_index_lines = 8
+set pager_context = 5
+set pager_stop
+set menu_scroll
+set smart_wrap
+unset markers
+bind pager j next-line
+bind pager k previous-line
+bind pager h exit
+bind pager l view-attachments
+bind pager <down> next-line
+bind pager <up> previous-line
+bind pager <left> exit
+bind pager <right> view-attachments
+bind pager H display-toggle-weed
+macro pager , '<change-folder>!^M'
+bind pager R group-reply
+
+# Attach
+bind attach l view-attach
+bind attach <right> view-attach
+bind attach h exit
+bind attach <left> exit
+bind attach H display-toggle-weed
+
+# Compose
+set fcc_attach
+unset mime_forward
+set forward_format = "Fwd: %s"
+set include
+set forward_quote
+bind compose l view-attach
+bind compose <right> view-attach
+
+# Header
+ignore "Authentication-Results:"
+ignore "DomainKey-Signature:"
+ignore "DKIM-Signature:"
+hdr_order Date From To Cc
+
+ignore *
+unignore from: to: cc: date: subject
+hdr_order from: to: cc: date: subject
+unignore x-mailing-list: posted-to:
+unignore x-mailer:
+
+# Appearance
+set markers = no # don't put '+' at the beginning of wrapped lines
+set pager_index_lines = 5 # how large is the index window?
+set sort = 'threads'
+set sort_aux = 'last-date-received'
+
+# Editor command
+set editor = 'vim + -c "set textwidth=72" -c "set wrap" -c "set nocp" -c "set spell"'
+
+# Saved addresses
+set alias_file = '/home/ryan/.mutt/aliases'
+set sort_alias = alias
+set reverse_alias = yes
+source '/home/ryan/.mutt/aliases'

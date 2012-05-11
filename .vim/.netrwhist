@@ -1,0 +1,11 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =9
+let g:netrw_dirhist_1='/home/ryan/.scripts'
+let g:netrw_dirhist_2='/home/ryan/Programming/Python/projects/r3tagger/tests/test_songs'
+let g:netrw_dirhist_3='/home/ryan/.fonts'
+let g:netrw_dirhist_4='/home/ryan/.offlineimap'
+let g:netrw_dirhist_5='/home/ryan/.vim/bundle/VimClojure'
+let g:netrw_dirhist_6='/usr/ports/sysutils/tmux/files'
+let g:netrw_dirhist_7='/usr/ports/www/luakit/files'
+let g:netrw_dirhist_8='/usr/home/ryan/.xmonad'
+let g:netrw_dirhist_9='/usr/home/ryan/.offlineimap'
