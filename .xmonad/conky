@@ -9,5 +9,4 @@ update_interval 1
 total_run_times 0
 
 TEXT
-Cpu: ^fg(\#888888)${cpu cpu0}%^fg()  Mem: ^fg(\#888888)${memperc}%^fg()  Net: ^fg(\#888888)${downspeed wlan0}^fg() / ^fg(\#888888)${upspeed wlan0}^fg() ${time %a %b %d %H:%M}  
-#Mail: ^fg(\#888888)${new_mails ~/Mail}^fg() Bat: ^fg(\#888888)${apcupsd_charge}^fg() (^fg(\#888888)${apcupsd_timeleft}^fg())
+Mail: ^fg(\#888888)${new_mails /home/ryan/Mail/INBOX}^fg() Bat: ^fg(\#888888)${execi 60 acpi -b|cut -d ' ' -f 4|sed 's/,//g'}^fg() Cpu: ^fg(\#888888)${cpu cpu0}%^fg()  Mem: ^fg(\#888888)${memperc}%^fg()  Net: ^fg(\#888888)${downspeed wlan0}^fg() / ^fg(\#888888)${upspeed wlan0}^fg() ${time %a %b %d %H:%M}  
