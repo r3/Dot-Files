@@ -108,7 +108,7 @@ zstyle ':completion:*:*:kill:*' menu yes select
 zstyle ':completion:*:kill:*' force-list always
 
 # Python stuff
-export PYTHONPATH=~/Programming/Python/py:/opt/openoffice.org/basis3.3/program
+#export PYTHONPATH=~/Programming/Python/py:/opt/openoffice.org/basis3.3/program
 export WORKON_HOME=~/Programming/Python/projects
 export PIP_VIRTUALENV_BASE=$WORKON_HOME
 export PROJECT_HOME=$WORKON_HOME

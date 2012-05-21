@@ -21,6 +21,7 @@ import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.SetWMName
 import XMonad.Hooks.UrgencyHook
+import XMonad.Hooks.ICCCMFocus
 
 -- }}}
 -- The basics {{{
@@ -34,16 +35,17 @@ myWorkspaces    = ["main","www","dev","etc"]
 myNormalBorderColor = "#000000"
 myFocusedBorderColor = "#000000"
 
-myLogHook h = dynamicLogWithPP $ defaultPP
-    { ppCurrent         = dzenColor "#2aa198" "" . pad
-    , ppHidden          = dzenColor "#005555" "" . pad
-    , ppHiddenNoWindows = dzenColor "#007777" "" . pad
-    , ppLayout          = dzenColor "#005555" "" . pad
-    , ppUrgent          = dzenColor "#ffffff" "" . pad . dzenStrip
-    , ppTitle           = shorten 100
-    , ppWsSep           = ""
-    , ppOutput          = hPutStrLn h
-    }
+myLogHook h = takeTopFocus >>
+    (dynamicLogWithPP $ defaultPP
+        { ppCurrent         = dzenColor "#2aa198" "" . pad
+        , ppHidden          = dzenColor "#005555" "" . pad
+        , ppHiddenNoWindows = dzenColor "#007777" "" . pad
+        , ppLayout          = dzenColor "#005555" "" . pad
+        , ppUrgent          = dzenColor "#ffffff" "" . pad . dzenStrip
+        , ppTitle           = shorten 100
+        , ppWsSep           = ""
+        , ppOutput          = hPutStrLn h
+    })
 
 -- }}}
 -- Key bindings {{{
@@ -53,8 +55,9 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- launch a terminal
     [ ((modm .|. shiftMask, xK_Return), spawn $ XMonad.terminal conf)
 
-    -- launch gmrun
+    -- Suspend/Hibernate
     , ((modm .|. shiftMask, xK_s     ), spawn "sudo pm-suspend")
+    , ((modm .|. shiftMask, xK_h     ), spawn "sudo pm-hibernate")
  
     -- launch gmrun
     , ((modm,               xK_p     ), spawn "gmrun")
@@ -75,7 +78,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm,               xK_e     ), goToSelected defaultGSConfig)
 
     -- Launch application from a menu
-    , ((modm .|. shiftMask, xK_e     ), spawnSelected defaultGSConfig ["Keepassx", "Xfburn", "Screenshot", "Writer", "Mathematica", "Eclipse", "Gvim", "Anki", "Virtualbox"])
+    , ((modm .|. shiftMask, xK_e     ), spawnSelected defaultGSConfig ["Keepassx", "Xfburn", "Screenshot", "Writer", "Mathematica", "Eclipse", "Anki", "Virtualbox", "EarlyTranscendentals"])
 
     -- Download email
     , ((mod4Mask,           xK_e     ), spawn "offlineimap")

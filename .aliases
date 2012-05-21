@@ -6,14 +6,14 @@ alias mpc='mpc -h saturn.roler -p 6001'
 alias tunnel='ssh -ND 6000 -v ryan@r3.servebeer.com'
 alias Scp='scp -P 6000'
 alias S='ssh -p 6000 -C -X -t 192.168.0.23'
-alias listen='netstat --numeric-ports -p -l'
+alias listening='netstat --numeric-ports -p -l'
 
-# Basic Application Shortcuts
+# Basic App Customization
 
 alias X='startx'
 alias die='killall -SIGKILL'
 alias top='htop'
-alias spell='hunspell -a'
+alias spell='aspell -a'
 alias mkdir='mkdir -p'
 alias man='man -P "less -X"'
 alias less='less -X'
@@ -27,6 +27,7 @@ alias du='du -h'
 alias gvim='gvim -geom 80x20'
 alias makepkg='makepkg -i'
 alias ping='ping -c 1'
+alias netcfg='sudo netcfg'
 alias down='sudo shutdown -h now'
 alias Extrenuous='sudo pacman -R `pacman -Qtd | cut -d " " -f 1`'
 alias cower='cower --timeout=0'
@@ -36,10 +37,8 @@ alias p='pushd'
 alias o='popd'
 alias FixClock='sudo ntpdate 0.us.pool.ntp.org'
 alias gv='gvim'
-alias v='vim'
-alias wo='source /usr/bin/virtualenvwrapper.sh; workon'
-alias g='ack -i --output \$.:\$_'
 alias reboot='sudo reboot'
+
 
 # Application Shortcuts
 
@@ -47,25 +46,20 @@ alias projector='xrandr --output VGA1 --auto'
 alias todo='vim ~/.todo'
 alias dorf='~/Games/DwarfFortress/dfhack'
 alias slideshow='feh -F -D 5 .'
-alias eclim='~/.scripts/Eclimd > /dev/null'
-alias eclimd='~/.scripts/Eclimd > /dev/null'
-alias math='/opt/Mathematica/mathematica -clean'
-alias soundsense='/home/ryan/Games/DwarfFortress/soundsense/soundSense.sh'
 
 
 # Python Shortcuts
 
-alias py='ipython kernel & vim -c IPython'
+alias wo='source /usr/bin/virtualenvwrapper.sh; workon'
+alias mkproject='source /usr/bin/virtualenvwrapper.sh; mkproject'
 alias i='ipython --no-confirm-exit --nosep --no-banner'
 alias i2='ipython2 --no-confirm-exit --nosep --no-banner'
-alias calc='isympy'
-alias pydb='python3 -m pdb'
-alias pydb2='python2 -m pdb'
+alias pdb='python3 -m pdb'
+alias pdb2='python2 -m pdb'
 
 
 # Opens extension with app
 
-alias -s py=vim
 alias -s html=luakit
 alias -s htm=luakit
 alias -s com=luakit
@@ -75,8 +69,6 @@ alias -s c=vim
 alias -s log=less
 alias -s conf=vim
 alias -s tex=vim
-alias -s old=mv
-alias -s bak=mv
 alias -s rar='unrar e'
 alias -s 7z=7z 
 alias -s zip=unzip
@@ -90,18 +82,15 @@ alias -s wmv=vlc
 alias -s mov=vlc
 alias -s avi=vlc
 alias -s mp4=vlc
-alias -s odt=openoffice.org3
-alias -s doc=openoffice.org3
-alias -s docx=openoffice.org3
-alias -s rtf=openoffice.org3
-alias -s ppt=openoffice.org3
+alias -s odt=libreoffice
+alias -s doc=libreoffice
+alias -s docx=libreoffice
+alias -s rtf=libreoffice
+alias -s ppt=libreoffice
 
 # Books
 
-alias book='zathura ~/Docs/Books/CompScience/Programming/Python/ExpertPythonProgramming.pdf &'
-alias C='zathura ~/Docs/Books/CompScience/Programming/C/TheCProgrammingLanguage_v2.pdf &'
-alias CM='zathura ~/Docs/Books/CompScience/Programming/C/AModernApproach_2nd.pdf &'
-alias J='cd ~/Programming/Java/HeadFirst; zathura ~/Docs/Books/CompScience/Programming/Java/HeadFirstJava.pdf &'
 alias Java='cd /home/ryan/Programming/Java/Thinking; zathura ~/Docs/Books/CompScience/Programming/Java/ThinkingInJava_4th.pdf &'
-alias small='zathura ~/Docs/Books/CompScience/Programming/Smalltalk/SqueakByExample.pdf &'
+alias Smalltalk='zathura ~/Docs/Books/CompScience/Programming/Smalltalk/SqueakByExample.pdf &'
 alias Qt='cd /home/ryan/Programming/Python/qt; zathura ~/Docs/Books/CompScience/Programming/Python/RapidGUIProgrammingWithPythonAndQt.pdf &'
+alias Git='zathura ~/Docs/Books/CompScience/Programming/Theory/VersionControlWithGit.pdf &'

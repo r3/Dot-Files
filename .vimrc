@@ -13,6 +13,8 @@ filetype plugin indent on       " Turn on filetype specific options
 let mapleader=","               " Set leader key to comma
 let g:mapleader=","             " Set leader key to comma for Gvim
 
+set showmode                    " Displays mode on changes
+"set paste                       " Because default pasting sucks
 set nocompatible                " Who needs vi?
 set laststatus=2                " Always show status line
 set number                      " Enable line numbering
@@ -85,8 +87,8 @@ colorscheme solarized
 "" Keybinds ""
 """"""""""""""
 
-" Don't deindent #'s
-:inoremap # X<C-H>#
+" Copy selection to X clipboard
+nnoremap <silent><C-c> "+y
 
 " Tagbar binding
 nnoremap <F3> :TagbarToggle<cr>
@@ -133,6 +135,7 @@ nnoremap L $
 nnoremap T $
 
 " Toggle paste mode
+nnoremap <F4> :set invpaste paste?<cr>
 set pastetoggle=<F4>
 
 " Select everything
@@ -237,3 +240,6 @@ highlight MatchParen gui=bold guibg=NONE guifg=lightblue cterm=bold ctermbg=NONE
 
 " Highlight errors with whitespace
 let python_highlight_space_errors = 1
+
+" Set Breakpoint
+nnoremap <silent><leader>B iimport pdb; pdb.set_trace()<Esc>

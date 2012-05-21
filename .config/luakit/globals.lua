@@ -51,7 +51,6 @@ soup.accept_policy = cookie_policy.always
 -- it to avoid collisions with lua's string.format characters.
 -- See: http://www.lua.org/manual/5.1/manual.html#pdf-string.format
 search_engines = {
-    luakit      = "http://luakit.org/search/index/luakit?q=%s",
     aw          = "https://wiki.archlinux.org/index.php?search=%s",
     df          = "http://df.magmawiki.com/index.php?search=%s",
     google      = "http://google.com/search?q=%s",
@@ -60,6 +59,8 @@ search_engines = {
     aur         = "http://aur.archlinux.org/packages.php?O=0&K=%s&do_Search=Go",
     wolf        = "http://www.wolframalpha.com/input/?i=%s",
     pypi        = "http://pypi.python.org/pypi?:action=search&term=%s&submit=search",
+    file        = "http://www.filestube.com/search.html?q=%s"
+
 }
 
 -- Set google as fallback search engine

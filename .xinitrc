@@ -12,4 +12,4 @@ autocutsel -selection PRIMARY -fork &
 feh --bg-fill ~/.wallpaper.jpg &
 urxvtd -f -o -q &
 xsetroot -cursor_name left_ptr &
-exec xmonad
+exec dbus-launch --sh-syntax --exit-with-session xmonad
