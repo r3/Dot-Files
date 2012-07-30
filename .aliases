@@ -43,13 +43,16 @@ alias reboot='sudo reboot'
 # Application Shortcuts
 
 alias projector='xrandr --output VGA1 --auto'
-alias todo='vim ~/.todo'
-alias dorf='~/Games/DwarfFortress/dfhack'
+alias todo='python ~/Programming/Python/projects/todo/todo.py'
+alias Dorf='~/Games/DwarfFortress/dfhack'
+alias dorf='~/Games/df_linux/dfhack'
+alias soundsense='cd /home/ryan/Games/DwarfFortress/soundsense; soundSense.sh'
 alias slideshow='feh -F -D 5 .'
 
 
 # Python Shortcuts
 
+alias r3='wo r3tagger; cd r3tagger'
 alias wo='source /usr/bin/virtualenvwrapper.sh; workon'
 alias mkproject='source /usr/bin/virtualenvwrapper.sh; mkproject'
 alias i='ipython --no-confirm-exit --nosep --no-banner'
@@ -92,5 +95,5 @@ alias -s ppt=libreoffice
 
 alias Java='cd /home/ryan/Programming/Java/Thinking; zathura ~/Docs/Books/CompScience/Programming/Java/ThinkingInJava_4th.pdf &'
 alias Smalltalk='zathura ~/Docs/Books/CompScience/Programming/Smalltalk/SqueakByExample.pdf &'
-alias Qt='cd /home/ryan/Programming/Python/qt; zathura ~/Docs/Books/CompScience/Programming/Python/RapidGUIProgrammingWithPythonAndQt.pdf &'
+alias Qt='wo qt; zathura ~/Docs/Books/CompScience/Programming/Python/RapidGUIProgrammingWithPythonAndQt.pdf &'
 alias Git='zathura ~/Docs/Books/CompScience/Programming/Theory/VersionControlWithGit.pdf &'

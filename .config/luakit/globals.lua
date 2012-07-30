@@ -59,7 +59,8 @@ search_engines = {
     aur         = "http://aur.archlinux.org/packages.php?O=0&K=%s&do_Search=Go",
     wolf        = "http://www.wolframalpha.com/input/?i=%s",
     pypi        = "http://pypi.python.org/pypi?:action=search&term=%s&submit=search",
-    file        = "http://www.filestube.com/search.html?q=%s"
+    file        = "http://www.filestube.com/search.html?q=%s",
+    word        = "http://thesaurus.com/browse/%s?s=t"
 
 }
 

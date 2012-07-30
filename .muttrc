@@ -6,6 +6,7 @@ unset move
 set delete
 set quit
 unset mark_old
+set copy=yes
 
 # index options
 set sort = threads
@@ -19,18 +20,17 @@ set spoolfile = "+INBOX"
 set mbox_type=Maildir
 set mbox = "+archive"
 set postponed = "+drafts"
+set record = "~/Mail/sent_mail"
 mailboxes +INBOX +archive +sent +drafts +spam +trash
 
-unset record
 set sendmail = /usr/bin/msmtp
 
 set certificate_file =~/.mutt/certificates
 
 bind editor <space> noop
 macro index gi "<change-folder>=INBOX<enter>" "Go to inbox"
-macro index ga "<change-folder>=[Gmail]/All Mail<enter>" "Go to all mail"
-macro index gs "<change-folder>=[Gmail]/Sent Mail<enter>" "Go to Sent Mail"
-macro index gd "<change-folder>=[Gmail]/Drafts<enter>" "Go to drafts"
+macro index gs "<change-folder>=sent_mail<enter>" "Go to Sent Mail"
+macro index gd "<change-folder>=drafts<enter>" "Go to drafts"
 
 set move = no # Don't ask before moving read messages to mbox
 set imap_keepalive = 900

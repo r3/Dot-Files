@@ -56,11 +56,11 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     [ ((modm .|. shiftMask, xK_Return), spawn $ XMonad.terminal conf)
 
     -- Suspend/Hibernate
-    , ((modm .|. shiftMask, xK_s     ), spawn "sudo pm-suspend")
-    , ((modm .|. shiftMask, xK_h     ), spawn "sudo pm-hibernate")
+    , ((modm .|. shiftMask, xK_s     ), spawn "sudo netcfg -a; sudo pm-suspend")
+    , ((modm .|. shiftMask, xK_h     ), spawn "sudo netcfg -a; sudo pm-hibernate")
  
     -- launch gmrun
-    , ((modm,               xK_p     ), spawn "gmrun")
+    , ((modm,               xK_p     ), spawn "dmenu_run")
 
     -- close focused window
     , ((modm .|. shiftMask, xK_c     ), kill)
@@ -78,7 +78,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm,               xK_e     ), goToSelected defaultGSConfig)
 
     -- Launch application from a menu
-    , ((modm .|. shiftMask, xK_e     ), spawnSelected defaultGSConfig ["Keepassx", "Xfburn", "Screenshot", "Writer", "Mathematica", "Eclipse", "Anki", "Virtualbox", "EarlyTranscendentals"])
+    , ((modm .|. shiftMask, xK_e     ), spawnSelected defaultGSConfig ["Keepassx", "Xfburn", "Screenshot", "Writer", "Mathematica", "Eclipse", "Anki", "Virtualbox", "EarlyTranscendentals", "DwarfTherapist", "SoundSense", "Dorf"])
 
     -- Download email
     , ((mod4Mask,           xK_e     ), spawn "offlineimap")
@@ -147,7 +147,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((mod4Mask .|. shiftMask, xK_z), spawn "firefox")
     , ((mod4Mask,           xK_9    ), spawn "xbacklight -set 100")
     , ((mod4Mask,           xK_0    ), spawn "xbacklight -set 50")
-    , ((mod4Mask,           xK_s    ), spawn "scrot -s")
+    , ((mod4Mask,           xK_s    ), spawn "sleep 1; scrot -s")
     , ((mod4Mask .|. shiftMask, xK_0), spawn "xbacklight -set 0")
 
     -- Volume wheel and mute
@@ -187,11 +187,11 @@ myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
 
 myLayoutHook = id
     . mkToggle (single FULL)
-    $ (tiled ||| Mirror tiled)
+    $ (Mirror tiled ||| tiled)
         where
             tiled = Tall nmaster delta ratio
             nmaster = 1
-            ratio = 1/2
+            ratio = 1/3
             delta = 3/100
 
 myManageHook = composeAll
@@ -212,7 +212,7 @@ myManageHook = composeAll
 
 myLeftBar :: DzenConf
 myLeftBar = defaultDzenXft
-    { width     = Just $ Pixels 640
+    { width     = Just $ Pixels 600
     , fgColor   = Just "#888888"
     , bgColor   = Just "#000000"
     , font      = Just "DejaVu Sans Mono:size=10"
@@ -220,10 +220,10 @@ myLeftBar = defaultDzenXft
 
 myRightBar :: DzenConf
 myRightBar = defaultDzenXft
-    { xPosition = Just $ Pixels 640
+    { xPosition = Just $ Pixels 600
     , fgColor   = Just "#005555"
     , bgColor   = Just "#000000"
-    , width     = Just $ Pixels 640
+    , width     = Just $ Pixels 680
     , font      = Just "DejaVu Sans Mono:size=10"
     , alignment = Just RightAlign
     }

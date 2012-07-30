@@ -6,7 +6,7 @@ promptinit
 
 setopt CSH_NULL_GLOB SHARE_HISTORY EXTENDED_HISTORY NO_HIST_BEEP \
        NOBEEP AUTO_CD EXTENDED_GLOB NO_MAIL_WARNING NO_CLOBBER \
-       CORRECT
+       CORRECT AUTO_PUSHD
 
 # This is to deal with the gnupg sign-in
 # which likes to pop up on other terms.
@@ -14,12 +14,22 @@ setopt CSH_NULL_GLOB SHARE_HISTORY EXTENDED_HISTORY NO_HIST_BEEP \
 #export GPG_TTY=`tty`
 #echo UPDATESTARTUPTTY | gpg-connect-agent >/dev/null
 
+# List directories when changing directories
+preexec() { ODIR="$(pwd)" }          
+precmd() { [[ "$(pwd)" != $ODIR ]] \
+        && [[ "$(pwd)" != $HOME ]] \
+        && ls --color=auto --group-directories-first -hF \
+        &&  ODIR="$(pwd)" }
+
 # Java thingy
 export _JAVA_AWT_WM_NONREPARENTING=1
 
 # Disable pausing/resuming terminal with C-s and C-q
 #stty ixoff -ixon
 stty stop undef
+
+# Use unicode for Locale (en_US.UTF-8)
+export LC_ALL=en_US.UTF-8
 
 # The path.
 typeset -U PATH

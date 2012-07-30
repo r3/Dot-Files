@@ -28,6 +28,7 @@ set modelines=5                 " they must be within the first or last 5 lines
 set ffs=unix,dos,mac            " Try recognizing dos, unix, and mac line endings
 set hidden                      " Don't require saving a buffer to edit another
 set colorcolumn=80              " Draw a coloured column in column 80
+set textwidth=80                " Hard wrap at 80 characters
 set encoding=utf-8              " Default encoding
 set t_Co=256                    " Let vim know that terminal has 256 colours
 
@@ -87,8 +88,9 @@ colorscheme solarized
 "" Keybinds ""
 """"""""""""""
 
-" Copy selection to X clipboard
+" Copy/Paste selection to/from X clipboard
 nnoremap <silent><C-c> "+y
+" nnoremap <silent><C-v> "+p
 
 " Tagbar binding
 nnoremap <F3> :TagbarToggle<cr>
@@ -138,6 +140,9 @@ nnoremap T $
 nnoremap <F4> :set invpaste paste?<cr>
 set pastetoggle=<F4>
 
+" Sane pasting without paste mode
+nnoremap <silent><leader>p "+p
+
 " Select everything
 nnoremap <silent><leader>A ggVG
 
@@ -158,12 +163,11 @@ nnoremap <leader>S :s/
 nnoremap <silent><leader>W :%s/\s\+$//e<cr>
 
 
-
 """"""""""""""""""""
 "" Plugin Options ""
 """"""""""""""""""""
 
-" Ultisnips
+" --Ultisnips--
 let g:UltiSnipsSnippetDir="/home/ryan/.vim/UltiSnips"
 let g:UltiSnipsEditSplit="vertical"          " When defining new snippits, split vertically
 let g:UltiSnipsExpandTrigger="<c-j>"         " Ultisnips trigger
@@ -171,20 +175,20 @@ let g:UltiSnipsJumpBackwardTrigger="<c-j>"   " Jump forwards
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"   " Jump backwards
 nnoremap <silent><leader>j :UltiSnipsEdit<cr>
 
-" Easy Motion
+" --Easy Motion--
 let g:EasyMotion_leader_key="<leader><leader>"  " Use leader key twice to trigger easy motion
 
-" Nerd Tree
+" --Nerd Tree--
 "Closes vim if nerdtree is the only buffer open
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 nnoremap <silent><leader>tt :NERDTreeToggle<cr>
 nnoremap <silent><leader>tb :NERDTreeFromBookmark 
 nnoremap <silent><leader>tf :NERDTreeFind 
 
-" Relative Line Numbering
+" --Relative Line Numbering--
 let g:NumberToggleTrigger = '<C-n>'
 
-" Python-Mode
+" --Python-Mode--
 "Run linter on the fly
 let  g:pymode_lint_onfly = 0
 "Don't open error window on error
@@ -198,8 +202,23 @@ let g:pymode_lint_write = 1
 "Rope rename (refactor)
 imap <leader>R :RopeRename
 "Syntax highlighting
-let g:pymode_synax = 0
+let g:pymode_synax = 1
 
+" --Syntastic--
+"Standard C++11
+let g:syntastic_cpp_compiler_options = ' -std=c++11'
+
+" --Pydiction--
+"Set dictionary location
+let g:pydiction_location = '/home/ryan/.vim/bundle/Pydiction/complete-dict'
+
+" --Relative line numbers--
+"Toggle relative line numbering with Ctrl+n
+let g:NumberToggleTrigger="<c-n>" 
+
+" --Vim-IPython
+"Set completion to local buffer. Keeps compatability with other completions
+let g:ipy_completefunc = 'local'
 
 
 """""""""""""""""
@@ -226,9 +245,6 @@ cmap w!! %!sudo tee > /dev/null %
 " Make Y behave like D
 map Y y$
 
-" Relative line numbers
-let g:NumberToggleTrigger="<c-n>"            " Toggle relative line numbering with Ctrl+n
-
 " Magic to make it see the cursor on parens
 highlight MatchParen gui=bold guibg=NONE guifg=lightblue cterm=bold ctermbg=NONE
 
@@ -240,6 +256,3 @@ highlight MatchParen gui=bold guibg=NONE guifg=lightblue cterm=bold ctermbg=NONE
 
 " Highlight errors with whitespace
 let python_highlight_space_errors = 1
-
-" Set Breakpoint
-nnoremap <silent><leader>B iimport pdb; pdb.set_trace()<Esc>
