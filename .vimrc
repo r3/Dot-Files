@@ -89,8 +89,8 @@ colorscheme solarized
 """"""""""""""
 
 " Copy/Paste selection to/from X clipboard
-nnoremap <silent><C-c> "+y
-" nnoremap <silent><C-v> "+p
+nnoremap <silent><C-y> "+y
+nnoremap <silent><C-p> "+p
 
 " Tagbar binding
 nnoremap <F3> :TagbarToggle<cr>
@@ -186,7 +186,7 @@ nnoremap <silent><leader>tb :NERDTreeFromBookmark
 nnoremap <silent><leader>tf :NERDTreeFind 
 
 " --Relative Line Numbering--
-let g:NumberToggleTrigger = '<C-n>'
+let g:NumberToggleTrigger="<leader>r"
 
 " --Python-Mode--
 "Run linter on the fly
@@ -212,10 +212,6 @@ let g:syntastic_cpp_compiler_options = ' -std=c++11'
 "Set dictionary location
 let g:pydiction_location = '/home/ryan/.vim/bundle/Pydiction/complete-dict'
 
-" --Relative line numbers--
-"Toggle relative line numbering with Ctrl+n
-let g:NumberToggleTrigger="<c-n>" 
-
 " --Vim-IPython
 "Set completion to local buffer. Keeps compatability with other completions
 let g:ipy_completefunc = 'local'
@@ -229,11 +225,11 @@ let g:ipy_completefunc = 'local'
 au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|else|exe "norm $"|endif|endif
 
 " Easily change between split buffers
-map <c-j> <c-w>j
-map <c-k> <c-w>k
+"map <c-j> <c-w>j
+"map <c-k> <c-w>k
 map <c-l> <c-w>l
 map <c-h> <c-w>h
-imap <C-W> <C-O><C-W>
+"imap <C-W> <C-O><C-W>
 
 " Custom invisibles
 set listchars=tab:▸\ ,eol:¬,trail:⋅,extends:❯,precedes:❮

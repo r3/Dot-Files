@@ -26,7 +26,7 @@ import XMonad.Hooks.ICCCMFocus
 -- }}}
 -- The basics {{{
 
-myTerminal      = "urxvt"
+myTerminal      = "urxvt --urgentOnBell"
 myFocusFollowsMouse :: Bool
 myFocusFollowsMouse = True
 myBorderWidth   = 0
