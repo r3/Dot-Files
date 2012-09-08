@@ -13,6 +13,10 @@ filetype plugin indent on       " Turn on filetype specific options
 let mapleader=","               " Set leader key to comma
 let g:mapleader=","             " Set leader key to comma for Gvim
 
+" The following keys are already designated as shortcuts following the leader.
+" w, q, qq, /, \, i, p, A, S, W, <pageup>, <pagedown>,
+" f, r, j, tt, tb, tf, b, r, a, T, G
+
 set showmode                    " Displays mode on changes
 "set paste                       " Because default pasting sucks
 set nocompatible                " Who needs vi?
@@ -92,9 +96,6 @@ colorscheme solarized
 nnoremap <silent><C-y> "+y
 nnoremap <silent><C-p> "+p
 
-" Tagbar binding
-nnoremap <F3> :TagbarToggle<cr>
-
 " Fast saving
 nnoremap <silent><leader>w :w!<cr>
 
@@ -112,14 +113,6 @@ nnoremap <silent><leader>- :sp<cr>
 
 " Toggle spellcheck
 nnoremap <silent><leader>s :set spell!<cr>
-
-" Comment line(s) using '#'
-nnoremap <leader>m :s/^/#/<cr>
-vnoremap <leader>m :s/^/#/<cr>
-
-" Uncomment line(s) using '#'
-nnoremap <leader>mm :s/^#//<cr>
-vnoremap <leader>mm :s/^#//<cr>
 
 " Use arrow keys to change buffers
 nnoremap <right> :bn<cr>
@@ -144,7 +137,7 @@ set pastetoggle=<F4>
 nnoremap <silent><leader>p "+p
 
 " Select everything
-nnoremap <silent><leader>A ggVG
+nnoremap <silent><leader>a ggVG
 
 " Open shell
 nnoremap <silent><leader>d :sh<cr>
@@ -186,7 +179,7 @@ nnoremap <silent><leader>tb :NERDTreeFromBookmark
 nnoremap <silent><leader>tf :NERDTreeFind 
 
 " --Relative Line Numbering--
-let g:NumberToggleTrigger="<leader>r"
+let g:NumberToggleTrigger="<leader>N"
 
 " --Python-Mode--
 "Run linter on the fly
@@ -199,10 +192,18 @@ let g:pymode_folding = 0
 let g:pymode_breakpoint_key = '<leader>b'
 "Stop checking on saves, I check all the time anyway
 let g:pymode_lint_write = 1
+"Ignore some warnings/errors:
+let g:pymode_lint_ignore = "W402"  " W402 is unused import
 "Rope rename (refactor)
-imap <leader>R :RopeRename
+nnoremap <leader>R :RopeRename<cr>
 "Syntax highlighting
 let g:pymode_synax = 1
+"Autofix PEP8 violations
+nnoremap <leader>A :PyLintAuto<cr>
+"Toggle linter on/off
+nnoremap <leader>T :PyLintToggle<cr>
+"Goto definition
+nnoremap <leader>G :RopeGotoDefinition<cr>
 
 " --Syntastic--
 "Standard C++11
@@ -216,6 +217,11 @@ let g:pydiction_location = '/home/ryan/.vim/bundle/Pydiction/complete-dict'
 "Set completion to local buffer. Keeps compatability with other completions
 let g:ipy_completefunc = 'local'
 
+" -- Tagbar
+"Toggle the tagbar
+nnoremap <F3> :TagbarToggle<cr>
+"Do not sort the tagbar!
+let g:tagbar_sort=0
 
 """""""""""""""""
 "" Extra magic ""

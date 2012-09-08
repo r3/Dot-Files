@@ -251,6 +251,9 @@ add_binds("normal", {
             w.sbar.ebox:hide() w.sbar.hidden = true
         end
     end),
+
+    -- Unhighlight search results (r3)
+    buf(",/",                       function (w) w:clear_search() end),
     
     -- History
     key({},          "H",           function (w, m) w:back(m.count)    end),
