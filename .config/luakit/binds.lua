@@ -252,8 +252,11 @@ add_binds("normal", {
         end
     end),
 
-    -- Unhighlight search results (r3)
+    -- Unhighlight search results with <leader>/ (r3)
     buf(",/",                       function (w) w:clear_search() end),
+
+    -- Show downloads with <leader>d (r3)
+    buf(",d",                       function (w) w:set_mode("downloadlist") end),
     
     -- History
     key({},          "H",           function (w, m) w:back(m.count)    end),
