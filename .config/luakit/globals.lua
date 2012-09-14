@@ -53,7 +53,7 @@ soup.accept_policy = cookie_policy.always
 search_engines = {
     ddg         = "https://duckduckgo.com/?q=%s",
     git         = "https://github.com/search?q=%s",
-    gg          = "https://google.com/search?q=%s",
+    google      = "https://google.com/search?q=%s",
     imdb        = "http://www.imdb.com/find?s=all&q=%s",
     wiki        = "https://en.wikipedia.org/wiki/Special:Search?search=%s",
     aw          = "https://wiki.archlinux.org/index.php?search=%s",
