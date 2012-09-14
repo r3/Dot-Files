@@ -51,17 +51,17 @@ soup.accept_policy = cookie_policy.always
 -- it to avoid collisions with lua's string.format characters.
 -- See: http://www.lua.org/manual/5.1/manual.html#pdf-string.format
 search_engines = {
+    ddg         = "https://duckduckgo.com/?q=%s",
+    git         = "https://github.com/search?q=%s",
+    gg          = "https://google.com/search?q=%s",
+    imdb        = "http://www.imdb.com/find?s=all&q=%s",
+    wiki        = "https://en.wikipedia.org/wiki/Special:Search?search=%s",
     aw          = "https://wiki.archlinux.org/index.php?search=%s",
-    df          = "http://df.magmawiki.com/index.php?search=%s",
-    google      = "http://google.com/search?q=%s",
-    wiki        = "http://en.wikipedia.org/wiki/Special:Search?search=%s",
-    imdb        = "http://imdb.com/find?s=all&q=%s",
     aur         = "http://aur.archlinux.org/packages.php?O=0&K=%s&do_Search=Go",
     wolf        = "http://www.wolframalpha.com/input/?i=%s",
     pypi        = "http://pypi.python.org/pypi?:action=search&term=%s&submit=search",
     file        = "http://www.filestube.com/search.html?q=%s",
     word        = "http://thesaurus.com/browse/%s?s=t"
-
 }
 
 -- Set google as fallback search engine
@@ -70,7 +70,7 @@ search_engines.default = search_engines.google
 --search_engines.default = "%s"
 
 -- Per-domain webview properties
--- See http://webkitgtk.org/reference/WebKitWebSettings.html
+-- See http://webkitgtk.org/reference/webkitgtk/stable/WebKitWebSettings.html
 domain_props = { --[[
     ["all"] = {
         enable_scripts          = false,

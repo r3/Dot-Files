@@ -101,31 +101,27 @@ require "userscripts"
 
 -- Add bookmarks support
 require "bookmarks"
+require "bookmarks_chrome"
 
 -- Add download support
 require "downloads"
 require "downloads_chrome"
--- Default download directory
-downloads.default_dir = os.getenv("HOME") .. "/Downloads" 
--- Automatically start downloads to default directory
-downloads.add_signal("download-location", function (uri, file)
-if not file or file == "" then
-    file = (string.match(uri, "/([^/]+)$") 
-        or string.match(uri, "^%w+://(.+)") 
-        or string.gsub(uri, "/", "_")
-        or "untitled")
-    end 
-    return downloads.default_dir .. "/" .. file
-end) 
+
+-- Example using xdg-open for opening downloads / showing download folders
+--downloads.add_signal("open-file", function (file, mime)
+--    luakit.spawn(string.format("xdg-open %q", file))
+--    return true
+--end)
 
 -- Add vimperator-like link hinting & following
--- (depends on downloads)
 require "follow"
 
--- To use a custom character set for the follow hint labels un-comment and
--- modify the following:
---local s = follow.styles
---follow.style = s.sort(s.reverse(s.charset("asdfqwerzxcv"))) -- I'm a lefty
+-- Use a custom charater set for hint labels
+local s = follow.label_styles
+follow.label_maker = s.sort(s.reverse(s.charset("asdfjkl")))
+
+-- Match only hint labels
+--follow.pattern_maker = follow.pattern_styles.match_label
 
 -- Add command history
 require "cmdhist"
@@ -140,6 +136,8 @@ require "taborder"
 require "history"
 require "history_chrome"
 
+require "introspector"
+
 -- Add command completion
 require "completion"
 
@@ -147,7 +145,7 @@ require "completion"
 -- `,ts` to toggle scripts, `,tp` to toggle plugins, `,tr` to reset.
 -- Remove all "enable_scripts" & "enable_plugins" lines from your
 -- domain_props table (in config/globals.lua) as this module will conflict.
---require "noscript"
+require "noscript"
 
 require "follow_selected"
 require "go_input"
