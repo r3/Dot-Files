@@ -32,7 +32,8 @@ set modelines=5                 " they must be within the first or last 5 lines
 set ffs=unix,dos,mac            " Try recognizing dos, unix, and mac line endings
 set hidden                      " Don't require saving a buffer to edit another
 set colorcolumn=80              " Draw a coloured column in column 80
-set textwidth=80                " Hard wrap at 80 characters
+set textwidth=78                " Hard wrap at 78 characters
+set formatoptions=t             " Fix formatting (line width) when editing
 set encoding=utf-8              " Default encoding
 set t_Co=256                    " Let vim know that terminal has 256 colours
 
@@ -217,11 +218,21 @@ let g:pydiction_location = '/home/ryan/.vim/bundle/Pydiction/complete-dict'
 "Set completion to local buffer. Keeps compatability with other completions
 let g:ipy_completefunc = 'local'
 
-" -- Tagbar
+" --Tagbar
 "Toggle the tagbar
 nnoremap <F3> :TagbarToggle<cr>
 "Do not sort the tagbar!
 let g:tagbar_sort=0
+
+" --Clang_complete
+"Don't highlight errors. The buffer doesn't clear them when they get fixed
+let g:clang_hl_errors=0
+"Define snippit engine as ultisnips
+let g:clang_snippets_engine='ultisnips'
+"Get rid of preview window after completion
+let g:clang_close_preview=1
+"Use libclang for speed!
+let g:clang_use_library=1
 
 """""""""""""""""
 "" Extra magic ""

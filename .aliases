@@ -44,7 +44,7 @@ alias todo='python ~/Programming/Python/projects/todo/todo.py'
 alias dorf='~/Games/df_linux/dfhack'
 alias soundsense='cd /home/ryan/Games/DwarfFortress/soundsense; soundSense.sh'
 alias slideshow='feh -F -D 5 .'
-alias grep='awk'
+alias grep='ack'
 
 
 # Python Shortcuts
@@ -95,3 +95,4 @@ alias Java='cd /home/ryan/Programming/Java/Thinking; zathura ~/Docs/Books/CompSc
 alias Smalltalk='zathura ~/Docs/Books/CompScience/Programming/Smalltalk/SqueakByExample.pdf &'
 alias Qt='wo qt; zathura ~/Docs/Books/CompScience/Programming/Python/RapidGUIProgrammingWithPythonAndQt.pdf &'
 alias Git='zathura ~/Docs/Books/CompScience/Programming/Theory/VersionControlWithGit.pdf &'
+alias C='zathura ~/Docs/Books/CompScience/Programming/C++/Accelerated_C++.pdf &'
