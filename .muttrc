@@ -103,7 +103,7 @@ set sort = 'threads'
 set sort_aux = 'last-date-received'
 
 # Editor command
-set editor = 'vim + -c "set textwidth=72" -c "set wrap" -c "set nocp" -c "set spell"'
+set editor = 'vim + -c "set textwidth=72" -c "set wrap" -c "set nocp" -c "set spell" -c "set fo+=a"'
 
 # Saved addresses
 set alias_file = '/home/ryan/.mutt/aliases'

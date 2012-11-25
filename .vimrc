@@ -15,7 +15,7 @@ let g:mapleader=","             " Set leader key to comma for Gvim
 
 " The following keys are already designated as shortcuts following the leader.
 " w, q, qq, /, \, i, p, A, S, W, <pageup>, <pagedown>,
-" f, r, j, tt, tb, tf, b, r, a, T, G
+" f, F, r, j, tt, tb, tf, b, r, a, T, G, 
 
 set showmode                    " Displays mode on changes
 "set paste                       " Because default pasting sucks
@@ -156,6 +156,12 @@ nnoremap <leader>S :s/
 " Remove trailing whitespace
 nnoremap <silent><leader>W :%s/\s\+$//e<cr>
 
+" Turn off autoformatting
+nnoremap <leader>f :set fo=<cr>
+
+" Turn on autoformatting
+nnoremap <leader>F :set fo=ta<cr>
+
 
 """"""""""""""""""""
 "" Plugin Options ""
@@ -234,6 +240,14 @@ let g:clang_close_preview=1
 "Use libclang for speed!
 let g:clang_use_library=1
 
+" --LaTeX-Vim
+" Set grep to always generate a file-name.
+set grepprg=grep\ -nH\ $*
+
+" Set filetype of .tex files to 'tex' rather than 'plaintex'
+let g:tex_flavor='latex'
+
+
 """""""""""""""""
 "" Extra magic ""
 """""""""""""""""
@@ -261,6 +275,8 @@ map Y y$
 " Magic to make it see the cursor on parens
 highlight MatchParen gui=bold guibg=NONE guifg=lightblue cterm=bold ctermbg=NONE
 
+" Ask ctags to look in .git for the tags file
+set tags=./.git/tags;$HOME
 
 
 """"""""""""""""""

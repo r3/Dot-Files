@@ -78,7 +78,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm,               xK_e     ), goToSelected defaultGSConfig)
 
     -- Launch application from a menu
-    , ((modm .|. shiftMask, xK_e     ), spawnSelected defaultGSConfig ["Keepassx", "Xfburn", "Screenshot", "Writer", "Mathematica", "Eclipse", "Anki", "Virtualbox", "EarlyTranscendentals", "DwarfTherapist", "SoundSense", "Dorf"])
+    , ((modm .|. shiftMask, xK_e     ), spawnSelected defaultGSConfig ["Keepassx", "Xfburn", "Screenshot", "LibreOffice", "Mathematica", "Eclipse", "Anki", "VirtualBox", "EarlyTranscendentals", "DwarfTherapist", "SoundSense", "Dorf"])
 
     -- Download email
     , ((mod4Mask,           xK_e     ), spawn "offlineimap")

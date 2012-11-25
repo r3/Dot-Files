@@ -42,6 +42,7 @@ alias reboot='sudo reboot'
 alias projector='xrandr --output VGA1 --auto'
 alias todo='python ~/Programming/Python/projects/todo/todo.py'
 alias dorf='~/Games/df_linux/dfhack'
+alias ftl='cd ~/Games/FTL/; ./FTL; cd -'
 alias soundsense='cd /home/ryan/Games/DwarfFortress/soundsense; soundSense.sh'
 alias slideshow='feh -F -D 5 .'
 alias grep='ack'
@@ -88,10 +89,13 @@ alias -s doc=libreoffice
 alias -s docx=libreoffice
 alias -s rtf=libreoffice
 alias -s ppt=libreoffice
+alias -s pef=ufraw
+alias -s PEF=ufraw
 
 # Books
 
 alias Java='cd /home/ryan/Programming/Java/Thinking; zathura ~/Docs/Books/CompScience/Programming/Java/ThinkingInJava_4th.pdf &'
+alias JS='zathura ~/Docs/Books/CompScience/Programming/JavaScript/ProfessionalJavaScriptForWebDevelopers.pdf'
 alias Smalltalk='zathura ~/Docs/Books/CompScience/Programming/Smalltalk/SqueakByExample.pdf &'
 alias Qt='wo qt; zathura ~/Docs/Books/CompScience/Programming/Python/RapidGUIProgrammingWithPythonAndQt.pdf &'
 alias Git='zathura ~/Docs/Books/CompScience/Programming/Theory/VersionControlWithGit.pdf &'

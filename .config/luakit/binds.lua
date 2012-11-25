@@ -328,7 +328,7 @@ add_binds("normal", {
 
     -- Unhighlight search results with <leader>/ (r3)
     buf(",/",                       function (w) w:clear_search() end),
-
+   
     -- History
     key({}, "H", "Go back in the browser history `[count=1]` items.",
         function (w, m) w:back(m.count) end),

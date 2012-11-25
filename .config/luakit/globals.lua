@@ -61,7 +61,8 @@ search_engines = {
     wolf        = "http://www.wolframalpha.com/input/?i=%s",
     pypi        = "http://pypi.python.org/pypi?:action=search&term=%s&submit=search",
     file        = "http://www.filestube.com/search.html?q=%s",
-    word        = "http://thesaurus.com/browse/%s?s=t"
+    word        = "http://thesaurus.com/browse/%s?s=t",
+    df          = "http://dwarffortresswiki.org/index.php?&search=%s"
 }
 
 -- Set google as fallback search engine

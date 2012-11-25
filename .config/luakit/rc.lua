@@ -20,6 +20,7 @@ if unique then
     end
 end
 
+
 -- Load library of useful functions for luakit
 require "lousy"
 
@@ -43,6 +44,7 @@ require "window"
 -- Load users webview class
 -- ("$XDG_CONFIG_HOME/luakit/webview.lua" or "/etc/xdg/luakit/webview.lua")
 require "webview"
+
 -- Put new windows in tabs
 webview.init_funcs.window_decision = function (view, w)
     view:add_signal("new-window-decision", function (v, uri, reason)
@@ -112,6 +114,21 @@ require "downloads_chrome"
 --    luakit.spawn(string.format("xdg-open %q", file))
 --    return true
 --end)
+
+
+-- Set default download directory - r3
+downloads.default_dir = os.getenv("HOME") .. "/Downloads"
+
+-- Download without asking to default download directory - r3
+downloads.add_signal("download-location", function (uri, file)
+    if not file or file == "" then
+        file = (string.match(uri, "/([^/]+)$")
+            or string.match(uri, "^%w+://(.+)")
+            or string.gsub(uri, "/", "_")
+            or "untitled")
+    end
+    return downloads.default_dir .. "/" .. file
+end)
 
 -- Add vimperator-like link hinting & following
 require "follow"
