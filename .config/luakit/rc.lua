@@ -202,4 +202,7 @@ if unique then
     end)
 end
 
+require "adblock"
+require "adblock_chrome"
+
 -- vim: et:sw=4:ts=8:sts=4:tw=80
