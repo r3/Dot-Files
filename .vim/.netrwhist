@@ -1,5 +1,11 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =3
+let g:netrw_dirhist_cnt =9
 let g:netrw_dirhist_1='/home/ryan/Programming/Python/projects/r3tagger/r3tagger/query'
 let g:netrw_dirhist_2='/home/ryan/.offlineimap'
 let g:netrw_dirhist_3='/home/ryan/Programming/Python/projects/flux/FTL/examples'
+let g:netrw_dirhist_4='/etc/cron.weekly'
+let g:netrw_dirhist_5='/home/ryan/Programming/Python/projects/r3tagger/r3tagger/library'
+let g:netrw_dirhist_6='/home/ryan/.scripts'
+let g:netrw_dirhist_7='/home/ryan/Programming/Python/projects/flask/ajax/templates'
+let g:netrw_dirhist_8='/home/ryan/Programming/Python/projects/flask/canvas/static'
+let g:netrw_dirhist_9='/home/ryan/.git'

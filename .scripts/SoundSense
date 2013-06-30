@@ -1,0 +1,4 @@
+#!/bin/sh
+
+cd /home/ryan/Games/df_linux/soundsense
+./soundSense.sh

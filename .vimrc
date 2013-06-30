@@ -1,3 +1,4 @@
+
 " Pathogen
 call pathogen#infect()
 call pathogen#helptags()
@@ -5,20 +6,15 @@ call pathogen#helptags()
 """"""""""""""""""""
 "" General Optons ""
 """"""""""""""""""""
+syntax enable                   " Set syntax highlighting on
 syntax on                       " Set syntax highlighting on
 filetype plugin indent on       " Turn on filetype specific options
-
-"set mouse=a                     " Enable mouse in console vim
 
 let mapleader=","               " Set leader key to comma
 let g:mapleader=","             " Set leader key to comma for Gvim
 
-" The following keys are already designated as shortcuts following the leader.
-" w, q, qq, /, \, i, p, A, S, W, <pageup>, <pagedown>,
-" f, F, r, j, tt, tb, tf, b, r, a, T, G, 
-
+set nosmartindent               " Smart indentation causes deindentation of #
 set showmode                    " Displays mode on changes
-"set paste                       " Because default pasting sucks
 set nocompatible                " Who needs vi?
 set laststatus=2                " Always show status line
 set number                      " Enable line numbering
@@ -59,8 +55,6 @@ set noswapfile                  " No swapfiles
 
 set nowrap                      " Don't wrap lines
 set linebreak                   " Don't linebreak in the middle of a line
-"set autoindent                  " Enable autoindenting
-set smartindent                 " Enable smart indenting
 
 set tabstop=4                   " <tab> inserts 4 spaces
 set shiftwidth=4                " Indent level is 4 spaces
@@ -79,12 +73,12 @@ set hlsearch                    " Highlight searches by default
 set incsearch                   " Incrementally search while typing a regex
 
 
-"""""""""""""""""""
-"" Colour Scheme ""
-"""""""""""""""""""
+
+""""""""""""""
+""  Colour  ""
+""""""""""""""
+
 set background=dark
-let g:solarized_termcolors=256
-let g:solarized_visibility="high"
 colorscheme solarized
 
 
@@ -93,159 +87,107 @@ colorscheme solarized
 "" Keybinds ""
 """"""""""""""
 
-" Copy/Paste selection to/from X clipboard
-nnoremap <silent><C-y> "+y
-nnoremap <silent><C-p> "+p
-
 " Fast saving
 nnoremap <silent><leader>w :w!<cr>
 
+"       --General Binds--
 " Fast buffer closing
-nnoremap <silent><leader>q :clo<cr>
-
+nnoremap <silent><leader>q :bd<cr>
 " Fast quit
 nnoremap <silent><leader>qq :quitall!<cr>
-
 " Fast vertical split
 nnoremap <silent><leader>\ :vsp<cr>
-
 " Fast horizontal split
 nnoremap <silent><leader>- :sp<cr>
-
-" Toggle spellcheck
-nnoremap <silent><leader>s :set spell!<cr>
-
-" Use arrow keys to change buffers
-nnoremap <right> :bn<cr>
-nnoremap <left> :bp<cr>
-
 " Unhighlight search results
 nnoremap <silent><leader>/ :nohls<cr>
-
-" Toggle invisibles
-nnoremap <silent><leader>i :set list!<cr>
-
 " Use H/(L|T) for head/tail of line
 nnoremap H ^
 nnoremap L $
 nnoremap T $
-
-" Toggle paste mode
-nnoremap <F4> :set invpaste paste?<cr>
-set pastetoggle=<F4>
-
-" Sane pasting without paste mode
-nnoremap <silent><leader>p "+p
-
+" Use arrow keys to change buffers
+nnoremap <right> :bn<cr>
+nnoremap <left> :bp<cr>
 " Select everything
 nnoremap <silent><leader>a ggVG
-
-" Open shell
-nnoremap <silent><leader>d :sh<cr>
-
 " Resize buffers
 nnoremap <pageup> :res +10<cr>
 nnoremap <pagedown> :res -10<cr>
 nnoremap <leader><pageup> :vertical res +10<cr>
 nnoremap <leader><pagedown> :vertical res -10<cr>
+" Sane pasting without paste mode
+nnoremap <silent><leader>v "+p
 
-" Quick replace
-vnoremap <leader>S :s/
-nnoremap <leader>S :s/
+"       --Python Binds--
+" Trigger Jedi completion
+let g:jedi#autocompletion_command = "<C-Space>"
+" Python -> Break (pdb debugger)
+nnoremap <silent><leader>pb Oimport pdb; pdb.set_trace()<esc>
+" Python -> Break -> ipdb (ipdb Debugger)
+nnoremap <silent><leader>pbi Oimport ipdb; ipdb.set_trace()<esc>
+" Python -> Related (Other invokations of given function)
+let g:jedi#related_names_command = "<leader>pr"
+" Python -> Django -> Template (Toggle template syntax for html)
+nnoremap <leader>pdt :setfiletype htmldjango<cr>
+" Python -> Flake
+nnoremap <leader>pf :call Flake8()<cr>
 
-" Remove trailing whitespace
-nnoremap <silent><leader>W :%s/\s\+$//e<cr>
+"       --Toggle Binds--
+" Toggle invisibles
+nnoremap <silent><leader>ti :set list!<cr>
+" Toggle spellcheck
+nnoremap <silent><leader>ts :set spell!<cr>
+" Toggle relative line numbering
+let g:NumberToggleTrigger="<leader>tn"
 
-" Turn off autoformatting
-nnoremap <leader>f :set fo=<cr>
-
-" Turn on autoformatting
-nnoremap <leader>F :set fo=ta<cr>
+"       --F# Binds--
+" Toggle the Tagbar
+nnoremap <F3> :TagbarToggle<cr>
+" Toggle NerdTree
+nnoremap <F2> :NERDTreeToggle<cr>
 
 
 """"""""""""""""""""
 "" Plugin Options ""
 """"""""""""""""""""
 
-" --Ultisnips--
+"           --Ultisnips--
+" Define directory for snippits
 let g:UltiSnipsSnippetDir="/home/ryan/.vim/UltiSnips"
-let g:UltiSnipsEditSplit="vertical"          " When defining new snippits, split vertically
-let g:UltiSnipsExpandTrigger="<c-j>"         " Ultisnips trigger
-let g:UltiSnipsJumpBackwardTrigger="<c-j>"   " Jump forwards
-let g:UltiSnipsJumpBackwardTrigger="<c-k>"   " Jump backwards
+" When defining new snippits, split vertically
+let g:UltiSnipsEditSplit="vertical"
+" Ultisnips trigger
+let g:UltiSnipsExpandTrigger="<c-j>"
+" Jump forwards
+let g:UltiSnipsJumpBackwardTrigger="<c-j>"
+" Jump backwards
+let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+" Shortcut to snippit editing
 nnoremap <silent><leader>j :UltiSnipsEdit<cr>
+" Documentation type set to doxygen
+let g:ultisnips_python_style="doxygen"
 
-" --Easy Motion--
-let g:EasyMotion_leader_key="<leader><leader>"  " Use leader key twice to trigger easy motion
+"           --Easy Motion--
+" Use leader key twice to trigger easy motion
+let g:EasyMotion_leader_key="<leader><leader>"  
 
-" --Nerd Tree--
-"Closes vim if nerdtree is the only buffer open
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
-nnoremap <silent><leader>tt :NERDTreeToggle<cr>
-nnoremap <silent><leader>tb :NERDTreeFromBookmark 
-nnoremap <silent><leader>tf :NERDTreeFind 
-
-" --Relative Line Numbering--
-let g:NumberToggleTrigger="<leader>N"
-
-" --Python-Mode--
-"Run linter on the fly
-let  g:pymode_lint_onfly = 0
-"Don't open error window on error
-let g:pymode_lint_cwindow = 0
-"Disable folding
-let g:pymode_folding = 0
-"Key for set/unset breakpoint
-let g:pymode_breakpoint_key = '<leader>b'
-"Stop checking on saves, I check all the time anyway
-let g:pymode_lint_write = 1
-"Ignore some warnings/errors:
-let g:pymode_lint_ignore = "W402"  " W402 is unused import
-"Rope rename (refactor)
-nnoremap <leader>R :RopeRename<cr>
-"Syntax highlighting
-let g:pymode_synax = 1
-"Autofix PEP8 violations
-nnoremap <leader>A :PyLintAuto<cr>
-"Toggle linter on/off
-nnoremap <leader>T :PyLintToggle<cr>
-"Goto definition
-nnoremap <leader>G :RopeGotoDefinition<cr>
-
-" --Syntastic--
-"Standard C++11
-let g:syntastic_cpp_compiler_options = ' -std=c++11'
-
-" --Pydiction--
-"Set dictionary location
-let g:pydiction_location = '/home/ryan/.vim/bundle/Pydiction/complete-dict'
-
-" --Vim-IPython
-"Set completion to local buffer. Keeps compatability with other completions
-let g:ipy_completefunc = 'local'
-
-" --Tagbar
-"Toggle the tagbar
-nnoremap <F3> :TagbarToggle<cr>
-"Do not sort the tagbar!
+"            --Tagbar--
+"       (See: F# Binds)
+" Do not sort the tagbar!
 let g:tagbar_sort=0
 
-" --Clang_complete
-"Don't highlight errors. The buffer doesn't clear them when they get fixed
-let g:clang_hl_errors=0
-"Define snippit engine as ultisnips
-let g:clang_snippets_engine='ultisnips'
-"Get rid of preview window after completion
-let g:clang_close_preview=1
-"Use libclang for speed!
-let g:clang_use_library=1
+"           --Jedi--
+"    (See: Python Binds)
+"switch buffer/tab usage
+let g:jedi#use_tabs_not_buffers = 0
+"automatic selection of first completion on trigger
+let g:jedi#popup_select_first = 1
+"no automatic function display
+let g:jedi#show_function_definition = "0"
 
-" --LaTeX-Vim
-" Set grep to always generate a file-name.
-set grepprg=grep\ -nH\ $*
-
-" Set filetype of .tex files to 'tex' rather than 'plaintex'
-let g:tex_flavor='latex'
+"           --JS Library Syntax Highlighting--
+"'jquery,underscore,backbone,prelude,angularjs,requirejs' Libs to highlight
+let g:used_javascript_libs = 'underscore,backbone'
 
 
 """""""""""""""""
@@ -256,32 +198,40 @@ let g:tex_flavor='latex'
 au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|else|exe "norm $"|endif|endif
 
 " Easily change between split buffers
-"map <c-j> <c-w>j
-"map <c-k> <c-w>k
-map <c-l> <c-w>l
-map <c-h> <c-w>h
-"imap <C-W> <C-O><C-W>
+nmap <silent> <c-k> :wincmd k<cr>
+nmap <silent> <c-j> :wincmd j<cr>
+nmap <silent> <c-h> :wincmd h<cr>
+nmap <silent> <c-l> :wincmd l<cr>
 
 " Custom invisibles
 set listchars=tab:▸\ ,eol:¬,trail:⋅,extends:❯,precedes:❮
 set showbreak=↪
 
-" Forget to use sudo? Save with :w!!
-cmap w!! %!sudo tee > /dev/null %
-
 " Make Y behave like D
 map Y y$
 
-" Magic to make it see the cursor on parens
-highlight MatchParen gui=bold guibg=NONE guifg=lightblue cterm=bold ctermbg=NONE
-
 " Ask ctags to look in .git for the tags file
+" See: ~/.git_template/ctags
 set tags=./.git/tags;$HOME
 
 
-""""""""""""""""""
-"" Python Stuff ""
-""""""""""""""""""
+"""""""""""""""""""""
+"" Python Specific ""
+"""""""""""""""""""""
 
-" Highlight errors with whitespace
-let python_highlight_space_errors = 1
+" Omnicompletion for Python
+au FileType python set omnifunc=pythoncomplete#Complete
+let g:SuperTabDefaultCompletionType = "context"
+set completeopt=menuone,longest
+
+" Add the virtualenv's site-packages to vim path
+py << EOF
+import os.path
+import sys
+import vim
+if 'VIRTUAL_ENV' in os.environ:
+    project_base_dir = os.environ['VIRTUAL_ENV']
+    sys.path.insert(0, project_base_dir)
+    activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
+    execfile(activate_this, dict(__file__=activate_this))
+EOF

@@ -1,9 +1,9 @@
 ## -*- conf -*-
 
 ##### connection settings #####
-mpd_host = "saturn.roler"
-mpd_port = "6001"
-mpd_music_dir = "/media/cold/Audio"
+mpd_host = "192.168.0.23"
+mpd_port = "6600"
+mpd_music_dir = "C:/Audio/Mp3"
 mpd_connection_timeout = "5"
 mpd_crossfade_time = "5"
 

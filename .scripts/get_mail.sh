@@ -8,6 +8,8 @@ PID=$(pgrep offlineimap)
 
 [[ -n "$PID" ]] && kill $PID
 
-offlineimap -o -u quiet &> /dev/null &
+offlineimap -o &
+#offlineimap -o -u quiet &> /dev/null &
+#offlineimap -o -u quiet &> ~/offlineimap.log &
 
 exit 0

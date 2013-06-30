@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# Grabs IP address and guesses the router and pings the router once
+# If no IP is found, attempts to reconnect. Works only with the
+# 'wlan0' interface.
+
+IP=`ifconfig wlan0 | ack inet | awk '{print $2}'`
+
+if [ -z IP ]; then
+    CONNECTION=`netcfg current`
+    netcfg down ${CONNECTION}
+    netcfg connect ${CONNECTION}
+else
+    ping -c 1 ${IP}
+fi

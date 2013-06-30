@@ -1,0 +1,3 @@
+#!/bin/sh
+
+zathura ~/Docs/Books/Math/EarlyTranscendentalFunctions_5th.pdf

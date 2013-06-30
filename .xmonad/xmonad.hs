@@ -136,15 +136,15 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm .|. shiftMask, xK_z    ), spawn "xscreensaver-command -lock")
 
     -- Control MPC on Saturn.Roler
-    , ((mod4Mask,           xK_p    ), spawn "mpc -h saturn.roler -p 6001 toggle")
-    , ((mod4Mask,           xK_h    ), spawn "mpc -h saturn.roler -p 6001 prev")
-    , ((mod4Mask,           xK_j    ), spawn "mpc -h saturn.roler -p 6001 volume -10")
-    , ((mod4Mask,           xK_k    ), spawn "mpc -h saturn.roler -p 6001 volume +10")
-    , ((mod4Mask,           xK_l    ), spawn "mpc -h saturn.roler -p 6001 next")
+    , ((mod4Mask,           xK_p    ), spawn "mpc -h 192.168.0.23 -p 6600 toggle")
+    , ((mod4Mask,           xK_h    ), spawn "mpc -h 192.168.0.23 -p 6600 prev")
+    , ((mod4Mask,           xK_j    ), spawn "mpc -h 192.168.0.23 -p 6600 volume -10")
+    , ((mod4Mask,           xK_k    ), spawn "mpc -h 192.168.0.23 -p 6600 volume +10")
+    , ((mod4Mask,           xK_l    ), spawn "mpc -h 192.168.0.23 -p 6600 next")
 
     -- Program shortcuts
     , ((mod4Mask,           xK_z    ), spawn "luakit")
-    , ((mod4Mask .|. shiftMask, xK_z), spawn "firefox")
+    , ((mod4Mask .|. shiftMask, xK_z), spawn "chromium")
     , ((mod4Mask,           xK_9    ), spawn "xbacklight -set 100")
     , ((mod4Mask,           xK_0    ), spawn "xbacklight -set 50")
     , ((mod4Mask,           xK_s    ), spawn "sleep 1; scrot -s")

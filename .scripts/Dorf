@@ -1,0 +1,3 @@
+#/bin/sh
+
+urxvt -geometry 80x50 -name DwarfFortress -e /home/ryan/Games/df_linux/dfhack

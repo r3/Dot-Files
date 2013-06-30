@@ -11,8 +11,7 @@ Xft.rgba: rgb
 
 ! Urxvt Options --------------------
 urxvt*saveLines: 250
-urxvt*perl-ext-common: default,matcher
-urxvt*perl-ext: default,matcher
+urxvt*perl-ext: default,url-select
 urxvt*urlLauncher: /usr/bin/luakit
 urxvt*matcher.button: 1
 urxvt*keysym.M-u: perl:url-select:select_next

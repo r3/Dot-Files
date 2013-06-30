@@ -8,6 +8,7 @@ alias Scp='scp -P 6000'
 alias S='ssh -p 6000 -C -X -t 192.168.0.23'
 alias listening='netstat --numeric-ports -p -l'
 
+
 # Basic App Customization
 
 alias X='startx'
@@ -34,7 +35,9 @@ alias Follow='sudo tail -f /var/log/messages.log'
 alias is='ps aux|command grep -v grep|command grep -i'
 alias FixClock='sudo ntpdate 0.us.pool.ntp.org'
 alias gv='gvim'
-alias reboot='sudo reboot'
+alias scan='sudo netcfg -a; sudo ifconfig wlan0 up; sudo iwlist wlan0 scan'
+alias tcpdump='sudo tcpdump'
+alias ni='node ~/.scripts/node-vim.js'
 
 
 # Application Shortcuts
@@ -46,11 +49,14 @@ alias ftl='cd ~/Games/FTL/; ./FTL; cd -'
 alias soundsense='cd /home/ryan/Games/DwarfFortress/soundsense; soundSense.sh'
 alias slideshow='feh -F -D 5 .'
 alias grep='ack'
+alias Cataclysm='cd /home/ryan/.source/Cataclysm-DDA; cataclysm; cd'
+alias Cataclysm-clean='rm /home/ryan/.source/Cataclysm-DDA/save/*'
 
 
 # Python Shortcuts
 
 alias r3='wo r3tagger; cd r3tagger'
+alias pyfi='wo pyfi; cd ../../../pyfi/pyfi'
 alias wo='source /usr/bin/virtualenvwrapper.sh; workon'
 alias mkproject='source /usr/bin/virtualenvwrapper.sh; mkproject'
 alias i='ipython --no-confirm-exit --nosep --no-banner'
@@ -58,6 +64,7 @@ alias i2='ipython2 --no-confirm-exit --nosep --no-banner'
 alias pdb='python3 -m pdb'
 alias pdb2='python2 -m pdb'
 alias pyspeed-test='python -m timeit -s'
+alias breakout='wo flask; cd breakout'
 
 
 # Opens extension with app
@@ -91,6 +98,7 @@ alias -s rtf=libreoffice
 alias -s ppt=libreoffice
 alias -s pef=ufraw
 alias -s PEF=ufraw
+
 
 # Books
 
