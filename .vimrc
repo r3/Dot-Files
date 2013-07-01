@@ -73,7 +73,6 @@ set hlsearch                    " Highlight searches by default
 set incsearch                   " Incrementally search while typing a regex
 
 
-
 """"""""""""""
 ""  Colour  ""
 """"""""""""""
@@ -82,15 +81,13 @@ set background=dark
 colorscheme solarized
 
 
-
 """"""""""""""
 "" Keybinds ""
 """"""""""""""
 
+"       --General Binds--
 " Fast saving
 nnoremap <silent><leader>w :w!<cr>
-
-"       --General Binds--
 " Fast buffer closing
 nnoremap <silent><leader>q :bd<cr>
 " Fast quit
@@ -116,7 +113,7 @@ nnoremap <pagedown> :res -10<cr>
 nnoremap <leader><pageup> :vertical res +10<cr>
 nnoremap <leader><pagedown> :vertical res -10<cr>
 " Sane pasting without paste mode
-nnoremap <silent><leader>v "+p
+nnoremap <silent><leader>P "+p
 
 "       --Python Binds--
 " Trigger Jedi completion
